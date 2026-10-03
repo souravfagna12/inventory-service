@@ -1,0 +1,17 @@
+services:
+  mysql:
+    image: mysql:8.3.0 # use this image
+    container_name: mysql # this is the container name in which it is going to run
+    restart: always # restart is container is crashed or stoped
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: ticketing
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql #SQL script that runs during initial database setup
+      - db-data:/var/lib/mysql  #Where MySQL stores its actual database data
+      - db-data:/var/log/mysql   # Store MySQL log files in the Docker volume
+
+volumes:
+  db-data:
