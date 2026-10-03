@@ -20,9 +20,11 @@ public class InventoryController {
     public InventoryController(InventoryService inventoryService){
         this.inventoryService = inventoryService;
     }
+
     @GetMapping("/inventory/events")
-    public @ResponseBody void inventoryGetAllEvents(){
-         inventoryService.getAllEvents();
+    public @ResponseBody List<EventInventoryResponse> inventoryGetAllEvents(){
+        return inventoryService.getAllEvents();
     }
+
 
 }
