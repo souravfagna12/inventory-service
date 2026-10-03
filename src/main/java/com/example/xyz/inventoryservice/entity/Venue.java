@@ -1,5 +1,6 @@
 package com.example.xyz.inventoryservice.entity;
 
+import com.example.xyz.inventoryservice.response.VenueInventoryResponse;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -29,5 +30,5 @@ public class Venue {
     private String address;
 
     @Column(name = "total_capacity")
-    private String totalCapacity;
+    private Long totalCapacity;
 }
